@@ -1,0 +1,186 @@
+@import "./minxin";
+
+.c-p {
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            padding: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                padding: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                padding: #{$i}px !important;
+            }
+        }
+    }
+}
+
+.c-pt, .c-py {
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            padding-top: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                padding-top: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                padding-top: #{$i}px !important;
+            }
+        }
+    }
+}
+
+.c-pb, .c-py {
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            padding-bottom: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                padding-bottom: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 1 through 50 {
+            &-md-#{$i} {
+                padding-bottom: #{$i}px !important;
+            }
+        }
+    }
+}
+
+
+.c-pl, .c-px {
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            padding-left: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                padding-left: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                padding-left: #{$i}px !important;
+            }
+        }
+    }
+}
+
+.c-pr, .c-px {
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            padding-right: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                padding-right: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                padding-right: #{$i}px !important;
+            }
+        }
+    }
+}
+
+.c-m {
+    &-auto {
+        margin: auto !important;
+    }
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            margin: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                margin: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                margin: #{$i}px !important;
+            }
+        }
+    }
+}
+.c-mt,.c-my {
+    &-auto {
+        margin-top: auto !important;
+    }
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            margin-top: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                margin-top: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                margin-top: #{$i}px !important;
+            }
+        }
+    }
+}
+.c-mb,.c-my {
+    &-auto {
+        margin-bottom: auto !important;
+    }
+    @for $i from 0 through 50 {
+        &-#{$i} {
+            margin-bottom: #{$i}px !important;
+        }
+    }
+    @include maxWidth(992px) {
+        @for $i from 0 through 50 {
+            &-lg-#{$i} {
+                margin-bottom: #{$i}px !important;
+            }
+        }
+    }
+    @include maxWidth(768px) {
+        @for $i from 0 through 50 {
+            &-md-#{$i} {
+                margin-bottom: #{$i}px !important;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,127 @@
+swagger: "2.0"
+#host: "backend.dev.tichhop.pro/"
+basePath: "api/v1"
+tags:
+  - name: "Article"
+    description: "API phần tin tức"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /article:
+    get:
+      tags:
+        - "Article"
+      summary: "Danh sách bài viết"
+      description: "Chỗ viết giải thích API"
+      operationId: "getArticle"
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+        - in: query
+          name: querry
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          Status: "1"
+        "405":
+          description: "Invalid input"
+      security:
+        - petstore_auth:
+            - "write:pets"
+            - "read:pets"
+  /article/{slug}:
+    get:
+      tags:
+        - "Article"
+      summary: "Chi tiết bài viết  + chi tiết danh mục"
+      description: "API Chi tiết bài viết  + chi tiết danh mục"
+      operationId: "showArticle"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+        - name: slug
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: string
+            required: true
+      responses:
+        '200':
+          description: successful operation
+          Status: " 1"
+          headers:
+            Status:
+              type: integer
+              format: int32
+              description: calls per hour allowed by the user
+            X-Expires-After:
+              type: string
+              format: date-time
+              description: date in UTC when token expires
+          '400':
+            description: Invalid username/password supplied
+      security:
+        - petstore_auth:
+            - "write:pets"
+            - "read:pets"
+  /get-category:
+    get:
+      tags:
+        - "Article"
+      summary: "Chi tiết bài viết  + chi tiết danh mục"
+      description: "API Chi tiết bài viết  + chi tiết danh mục"
+      operationId: "showArticle"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+        - name: slug
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: string
+            required: true
+      responses:
+        "200":
+          description: "Lấy dữ liệu thành công"
+        "400":
+          description: "Invalid status value"
+      security:
+        - petstore_auth:
+            - "write:pets"
+            - "read:pets"
+
+

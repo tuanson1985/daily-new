@@ -1,0 +1,107 @@
+swagger: '2.0'
+info:
+  description: Kho tập trung
+  version: dev
+  title: HQ GROUP API's
+basePath: /api/v1
+tags:
+  - name: Article
+    description: Manage Article
+paths:
+  /article:
+    get:
+      tags:
+        - Danh sách bài viết
+      summary: Danh sách bài viết
+      description: 'Chỗ viết giải thích API'
+      operationId: article
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+        - in: query
+          name: querry
+          type: string
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: data
+                items:
+                  type: string
+        '400':
+          description: Bad request
+  /article/{slug}:
+    get:
+      tags:
+        - Chi tiết bài viết  + chi tiết danh mục
+      description: 'Chỗ viết giải thích API'
+      operationId: article
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+        - name: slug
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type: string
+            required: true
+      responses:
+        '200':
+          description: OK
+  /get-category:
+    get:
+      tags:
+        - Danh sách danh mục
+    description: 'Chỗ viết giải thích API'
+    operationId: article
+    consumes:
+      - application/json
+    produces:
+      - application/json
+    parameters:
+      - in: query
+        name: domain
+        type: string
+        required: true
+      - in: query
+        name: secret_key
+        type: string
+        required: true
+      - name: slug
+        in: path
+        required: true
+        description: Parameter description in CommonMark or HTML.
+        schema:
+          type: string
+          required: true
+    responses:
+      '200':
+        description: OK
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: Authorization
+    in: header

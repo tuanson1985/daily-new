@@ -1,0 +1,277 @@
+body{
+    font-family:Arial, sans-serif !important ;
+}
+.form-control[type=text],.form-control[type=email]{
+    line-height: 3 !important;
+}
+
+.aside-menu .menu-nav > .menu-section .menu-text {
+    color: #ffffff;
+}
+
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-text, .aside-menu .menu-nav > .menu-item > .menu-link .menu-text {
+    color: #a2a3b7;
+}
+
+.aside {
+    background-color: #2c2e3e;
+}
+.aside-menu {
+    background-color: #2c2e3e;
+}
+.brand {
+    background: #222433;
+}
+.aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #1f2433;
+}
+.aside-menu .menu-nav > .menu-item > .menu-heading .menu-text, .aside-menu .menu-nav > .menu-item > .menu-link .menu-text{
+    font-size: 1.03rem;
+}
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #353748;
+}
+.aside-menu .menu-nav > .menu-item.menu-item-active > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-active > .menu-link {
+    background-color: #353748;
+}
+.aside-menu .menu-nav > .menu-item.menu-item-open > .menu-heading, .aside-menu .menu-nav > .menu-item.menu-item-open > .menu-link {
+    background-color: #353748;
+}
+.aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #353748;
+}
+.aside-menu .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-heading, .aside-menu .menu-nav > .menu-item .menu-submenu .menu-item:not(.menu-item-parent):not(.menu-item-open):not(.menu-item-here):not(.menu-item-active):hover > .menu-link {
+    background-color: #353748;
+}
+.aside-menu .menu-nav > .menu-item .menu-submenu .menu-item.menu-item-open > .menu-heading, .aside-menu .menu-nav > .menu-item .menu-submenu .menu-item.menu-item-open > .menu-link {
+    background-color: #353748;
+}
+
+.aside-menu .menu-nav>.menu-item .menu-submenu .menu-item.menu-item-active>.menu-heading, .aside-menu .menu-nav>.menu-item .menu-submenu .menu-item.menu-item-active>.menu-link {
+    background-color: #353748;
+}
+
+.btn.btn-pill {
+    border-radius: 60px;
+}
+.btn-hover-text-white:hover i,.btn-hover-text-white:focus i{
+    color: #ffffff; !important;
+}
+
+.subheader .breadcrumb .breadcrumb-item a{
+    color: #898b96;
+}
+
+.subheader .breadcrumb .breadcrumb-item a.text-muted{
+    color: #898b96 !important;
+}
+
+.subheader .breadcrumb .breadcrumb-item:last-child a{
+    color: #716aca !important;
+}
+
+.subheader .breadcrumb .breadcrumb-item a:hover,.subheader .breadcrumb .breadcrumb-item a:hover i{
+    color: #716aca !important;
+}
+.dropdown-menu.dropdown-menu-sm{
+    width: 210px;
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f6;
+    border: 1px solid #e2e2e5;
+    border-radius: 3px;
+}
+
+.m-checkbox{
+    display: inline-block !important;
+}
+
+.m-checkbox span {
+   margin-right: 5px;
+}
+.dropdown-menu-right .nav-link{
+    width: 100%;
+    background: none;
+    border: none;
+    outline: 0 none;
+}
+.dropdown-menu-right .nav-link:hover i{
+    color:#3699FF;
+}
+.modal-header .close {
+    padding: 1rem !important;
+    margin: -1rem -1rem -1rem auto  !important;
+}
+.dataTables_wrapper .dataTables_paginate .pagination .page-item.previous > .page-link, .dataTables_wrapper .dataTables_paginate .pagination .page-item.next > .page-link, .dataTables_wrapper .dataTables_paginate .pagination .page-item.last > .page-link, .dataTables_wrapper .dataTables_paginate .pagination .page-item.first > .page-link {
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+    background-color: #F3F6F9;
+    color:#d4d8dc;
+}
+
+.dataTables_wrapper .dataTables_paginate .pagination .page-item > .page-link {
+    outline: none !important;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 2.25rem;
+    min-width: 2.25rem;
+    padding: 0.5rem;
+    text-align: center;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 500;
+    border-radius: 0.42rem;
+    border: 0;
+    -webkit-transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, -webkit-box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, -webkit-box-shadow 0.15s ease;
+    color: #7E8299;
+    background-color: transparent;
+}
+.dataTables_wrapper .child .dtr-details > li .dtr-data{
+    word-break: break-all;
+}
+
+table.dataTable tbody td.selected a, table.dataTable tbody th.selected a, table.dataTable tbody tr.selected a {
+    color: #3699ff;
+}
+
+/*comment vì muốn chọn nhiều shop*/
+/*.select2-container--default .select2-selection--multiple .select2-selection__rendered {*/
+/*    height: calc(1.5em + 1.3rem + 2px);*/
+/*}*/
+
+.text-info {
+    color: #36a3f7!important;
+}
+.text-link {
+    color: #5867dd!important;
+}
+
+.btn.btn-info {
+    color: #fff;
+    background-color: #716aca;
+    border-color: #716aca;
+}
+
+.btn.btn-info.focus:not(.btn-text), .btn.btn-info:focus:not(.btn-text), .btn.btn-info:hover:not(.btn-text):not(:disabled):not(.disabled) {
+    color: #fff;
+    background-color: #564ec0;
+    border-color: #4d44bd;
+}
+
+
+.lead.text-right a{margin-bottom: 15px;}
+
+.card-form-control{
+    border: 1px solid #e4e6ef !important;
+
+}
+.card-form-control>.card-header {
+    min-height: 45px !important;
+    padding-left:1rem !important;
+    padding-right:1rem !important;
+}
+
+.card-form-control>.card-header .card-title, .card-form-control>.card-header .card-title .card-label{
+    font-size:1rem !important;
+}
+
+
+
+
+.switch.switch-outline.switch-success input:not(:checked)~span:before {
+    border: 2px solid #c8c9cc;
+
+}
+.switch.switch-outline.switch-success input:not(:checked)~span:after {
+    background-color: #bfbcbc;
+}
+
+.has-danger label:not([class]), .has-danger label.col-form-label, .has-danger label.form-control-label,.has-danger .form-text{
+    color: #f4516c !important;
+}
+.has-success .form-text{
+    color:  #34bfa3  !important;
+}
+
+.has-danger .form-control,.has-danger .form-text{
+    border-color: #f64e60;
+}
+.has-success .form-control,.has-success .form-text{
+    border-color: #34bfa3;
+}
+.is-invalid label:not([class]), .is-invalid label.col-form-label, .is-invalid label.form-control-label {
+    color: #f4516c !important;
+}
+
+.label.label-success {
+    color: #fff;
+    background-color: #00a651 !important;
+}
+.label-center{
+    height: auto !important;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.form-control.is-invalid:not(.icon-error)   {
+    background: none !important;
+
+}
+.table-hover tbody tr:hover {
+    color: #3f4254;
+    background-color: #f7f8fa !important;
+}
+
+
+.total-allpage ,.total-allpage td{
+    background-color: #abe7ed !important;
+}
+
+/*fix bug change two modal - tannm*/
+.modal {
+    overflow-y:auto;
+}
+
+@media (max-width: 460px){
+    .dataTables_wrapper .dataTables_pager {
+        display: block !important;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    .dataTables_wrapper .dataTables_pager .dataTables_length label{
+        display: inline-block !important;
+    }
+    .dataTables_wrapper .dataTables_pager .dataTables_length .custom-select{
+        display: inline-block !important;
+    }
+
+    .card.card-custom>.card-body {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 768px){
+
+    /*.form-group .col-12{ margin-bottom: 1.75rem;}*/
+    .form-group .col-12:last-child{ margin-bottom: 0}
+}
+

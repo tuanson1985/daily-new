@@ -1,0 +1,145 @@
+.gallery {
+    width: 100%;
+    /*max-width: 500px;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery-slider {
+    width: 100%;
+    height: auto;
+    margin: 0 0 10px 0;
+}
+
+.gallery-slider .swiper-slide {
+    width: 100%;
+    height: 320px;
+}
+
+.gallery-slider .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    background-size: cover;
+}
+
+.gallery-thumbs {
+    margin-top: 16px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery-thumbs .swiper-slide {
+    width: 50px;
+    /*height: 58px;*/
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+    opacity: 1;
+    background-size: cover;
+}
+.gallery-thumbs .swiper-slide img{
+
+}
+
+.gallery-thumbs .swiper-slide-active {
+    opacity: 1;
+}
+
+.gallery-thumbs .swiper-slide img {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    background-size: cover;
+}
+
+/*.gallery .swiper-button-next {*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    border-radius: 50%;*/
+/*    background: #111111;*/
+/*}*/
+
+/*aaaaaaaaâ*/
+.gallery  .swiper-button-prev {
+    height: 40px;
+    width: 40px;
+    background:#545454;
+    left: 15px;
+    top: 40%;
+    border-radius: 100%;
+    z-index: 200;
+}
+.gallery__row{
+    margin: 0 auto;
+}
+
+.gallery .swiper-button-next {
+    height: 40px;
+    width: 40px;
+    right: 15px;
+    background:  #545454;
+    /*url("/assets/frontend/images/next_arrow.svg") no-repeat center center*/
+    top: 40%;
+    border-radius: 100%;
+}
+
+.gallery .swiper-button-next i{
+    color: #FFF;
+    top: 48%;
+    position: absolute;
+    transform: translate(50%,-50%);
+    right: 50%;
+}
+.gallery .swiper-button-prev i{
+    color: #FFF;
+    top: 48%;
+    position: absolute;
+    transform: translate(50%,-50%);
+    right: 50%;
+}
+.gallery .swiper-button-next:hover,
+.gallery  .swiper-button-prev:hover {
+    transition: all .2s;
+    opacity: 80%;
+}
+
+/*vbbbbbbbbbbb*/
+
+.gallery .swiper-button-next:after {
+    display: none;
+}
+
+.gallery .arrow-right {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin: 0 10px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg) translate(-3px, 3px);
+}
+
+/*.gallery .swiper-button-prev {*/
+/*    width: 30px;*/
+/*    height: 30px;*/
+/*    border-radius: 50%;*/
+/*    background: #111111;*/
+/*}*/
+
+.gallery .swiper-button-prev:after {
+    display: none;
+}
+
+.gallery .arrow-left {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    margin: 0 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(45deg) translate(3px, -3px);
+}

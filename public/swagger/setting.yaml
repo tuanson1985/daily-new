@@ -1,0 +1,165 @@
+swagger: '2.0'
+#host: "backend.dev.tichhop.pro/"
+basePath: "/api/v1"
+tags:
+  - name: "Setting"
+    description: "API phần setting"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /system/setting:
+    get:
+      tags:
+        - Setting
+      summary: Danh sách setting
+      description: 'Chỗ viết giải thích API'
+      operationId: setting
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: data
+                items:
+                  type: string
+        '400':
+          description: Bad request
+  /menu-category:
+    post:
+      tags:
+        - Menu trang chủ
+      summary: Menu trang chủ
+      description: 'Chỗ viết giải thích API'
+      operationId: menu
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+          schema:
+            type: string
+            required: true
+      responses:
+        '200':
+          description: OK
+  /menu-profile:
+    post:
+      tags:
+        - Menu profile.
+      summary: Menu profile
+      description: 'Chỗ viết giải thích API'
+      operationId: menu
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+      responses:
+        '200':
+          description: OK.
+  /menu-transaction:
+    post:
+      tags:
+        - Menu nhanh.
+      summary: Menu nhanh
+      description: 'Chỗ viết giải thích API'
+      operationId: menu
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+      responses:
+        '200':
+          description: OK.
+  /get-slider-banner:
+    get:
+      tags:
+        - Slider banner.
+      summary: Slider banner
+      description: 'Chỗ viết giải thích API'
+      operationId: slider
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+      responses:
+        '200':
+          description: OK.
+  /get-dich-vu-noibat:
+    get:
+      tags:
+        - Slider banner.
+      summary: Slider banner
+      description: 'Chỗ viết giải thích API'
+      operationId: slider
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: query
+          name: domain
+          type: string
+          required: true
+        - in: query
+          name: secret_key
+          type: string
+          required: true
+      responses:
+        '200':
+          description: OK.
+
+#securityDefinitions:
+#  api_key:
+#    type: apiKey
+#    name: Authorization
+#    in: header

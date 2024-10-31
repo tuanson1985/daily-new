@@ -1,0 +1,877 @@
+:root {
+    --primary: #787AF6;
+    --secondary: #2b9cf2;
+}
+
+:not(pre)>code[class*=language-], pre[class*=language-] {
+    border-top: 3px solid #787AF6;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(87deg, #787AF6 0, #2b9cf2 100%) !important;
+}
+
+[v-cloak] > * {
+    display: none;
+}
+
+[v-cloak]::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #F2F6FA;
+}
+html{
+    box-sizing: border-box;
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+*,
+*:before,
+*:after
+{
+    box-sizing: inherit;
+}
+
+body {
+    margin:0;
+    background: #fafafa;
+}
+
+.nav-search{
+    margin-left: auto;
+    border-radius: 8px;
+    height: 40px;
+    background-color: transparent;
+    color: #363636;
+    width: 460px;
+    border: 1px solid  #e4e6ef;
+    padding: 8px;
+    /* padding-left: 16px; */
+}
+.nav-search::placeholder{
+    color: #363636;
+}
+
+.nav-search-input{
+    margin-left: auto;
+    border-radius: 8px;
+    height: 40px;
+    background-color: transparent;
+    color: #363636;
+    width: 460px;
+    border: 1px solid  #e4e6ef;
+    padding: 8px;
+    /* padding-left: 16px; */
+}
+.nav-search-input::placeholder{
+    color: #363636;
+}
+.nav-search-navbar{
+    margin-left: auto;
+    border-radius: 8px;
+    height: 32px;
+    background-color: #ffffff;
+    color: #363636;
+    border: 1px solid  #e4e6ef;
+    padding: 8px;
+    width: 100%;
+    /* padding-left: 16px; */
+}
+.nav-search-navbar::placeholder{
+    color: #363636;
+}
+
+#ul-api-docs .active{
+    color: #F67600;
+    font-weight: bold;
+}
+
+/*  select */
+
+#header-api .dropdown{
+    margin-left: auto;
+    width: 228px;
+    height: 40px;
+}
+
+input:focus-visible{
+    border: 1px solid  #e4e6ef;
+    box-shadow: none!important;
+    outline: none!important;
+}
+
+#select-client{
+    border: 1px solid  #e4e6ef;
+    box-shadow: none!important;
+    outline: none!important;
+}
+
+#header-api button{
+    border: 1px solid  #e4e6ef;
+    box-shadow: none!important;
+    outline: none!important;
+}
+
+
+@media (min-width: 1200px){
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .response-col_description{
+        padding-top: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 8px 0;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 16px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 20px 20px;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+
+    .swagger-ui table thead tr td, .swagger-ui table thead tr th{
+        padding-left: 8px!important;
+    }
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .response-col_description{
+        padding-top: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 8px 0;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 16px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 20px 20px;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px!important;
+        padding-right: 8px!important;
+    }
+    #app .response-col_description{
+        padding-top: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 8px 0;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 16px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 20px 20px;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+    #app .documentation{
+        padding: 0 16px!important;
+    }
+}
+
+@media only screen and (min-width: 573px) and (max-width: 768px) {
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px!important;
+        padding-right: 8px!important;
+    }
+    #app .response-col_description{
+        padding-top: 0;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 8px 0;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 16px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 20px 20px;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+    #app .documentation{
+        padding: 0 16px!important;
+    }
+    .swagger-ui .wrapper{
+        padding: 0!important;
+    }
+
+}
+
+@media only screen and (min-width: 376px) and (max-width: 573px) {
+    #app .swagger-ui .errors-wrapper{
+        padding-left: 12px!important;
+        padding-right: 12px!important;
+    }
+    #app .documentation{
+        padding: 0 12px!important;
+    }
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px!important;
+        padding-right: 8px!important;
+    }
+    #app .response-col_description{
+        padding-top: 8px!important;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 0 0!important;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 12px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 0 16px 0!important;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+    .swagger-ui .wrapper{
+        padding: 0!important;
+    }
+    .swagger-ui .wrapper{
+        padding: 0!important;
+    }
+    .swagger-ui .opblock .opblock-summary-path{
+        max-width: calc(100% - 50px - 13rem)!important;
+    }
+    .swagger-ui .opblock .opblock-summary-method{
+        min-width: 48px!important;
+    }
+    .swagger-ui .opblock-tag{
+        font-size: 16px!important;
+    }
+    .documentation h1:first-of-type{
+        font-size: 16px!important;
+        margin-bottom: 12px!important;
+    }
+    .swagger-ui .errors-wrapper hgroup h4{
+        font-size: 16px!important;
+    }
+    .swagger-ui .errors-wrapper .errors h4,
+    .swagger-ui .errors-wrapper .errors .message.thrown{
+        font-size: 12px!important;
+    }
+    .swagger-ui .filter .operation-filter-input{
+        padding: 6px!important;
+        font-size: 12px!important;
+    }
+    .swagger-ui .filter .operation-filter-input::placeholder{
+        font-size: 12px!important;
+    }
+    .swagger-ui section h3{
+        font-size: 14px!important;
+        margin-top: 16px!important;
+    }
+    .swagger-ui .opblock-tag{
+        margin-top: 0!important;
+    }
+    .error-wrapper{
+        margin-bottom: 0!important;
+    }
+    .swagger-ui .parameter__name{
+        font-size: 14px!important;
+    }
+    .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea{
+        padding: 8px!important;
+        height: 32px!important;
+        font-size: 12px!important;
+    }
+    .swagger-ui input[type=email]::placeholder, .swagger-ui input[type=file]::placeholder, .swagger-ui input[type=password]::placeholder, .swagger-ui input[type=search]::placeholder, .swagger-ui input[type=text]::placeholder, .swagger-ui textarea{
+        font-size: 12px!important;
+    }
+    .swagger-ui table{
+        margin-bottom: 0!important;
+    }
+
+    .swagger-ui .table-container{
+        padding-top: 0!important;
+    }
+    .swagger-ui .responses-inner{
+        padding-top: 0!important;
+    }
+    .swagger-ui .opblock .opblock-section-header{
+        padding: 8px 16px!important;
+    }
+    .swagger-ui .table-container{
+        padding-left: 16px!important;
+        padding-right: 16px!important;
+    }
+    .swagger-ui .opblock-description-wrapper, .swagger-ui .opblock-external-docs-wrapper, .swagger-ui .opblock-title_normal{
+        padding: 12px 12px!important;
+        margin-bottom: 0!important;
+    }
+    .logo-hqplay{
+        width: 120px!important;
+    }
+    .switch-label{
+        height: 16px!important;
+        width: 32px!important;
+    }
+    .switch-label:before{
+        width: 16px!important;
+        right: 65%;
+    }
+    .switch-checkbox:checked+.switch-label:before{
+        right: 16px!important;
+    }
+    .text-base{
+        font-size: 12px!important;
+    }
+    .button{
+        padding: 12px 12px!important;
+    }
+    .sidebar{
+        width: 10rem!important;
+    }
+    .sidebar>ul>li>h2{
+        font-size: 14px!important;
+    }
+    .sidebar>ul>li>ul>li a{
+        font-size: 12px;
+        padding: 0 12px;
+    }
+    .title-api{
+        font-size: 14px!important;
+    }
+    .documentation hr{
+        margin-top: 12px!important;
+        margin-bottom: 12px!important;
+    }
+    #app .markdown p{
+        font-size: 14px!important;
+        line-height: 20px!important;
+    }
+    #app .documentation{
+        margin-bottom: 0!important;
+    }
+    /*.swagger-ui table{*/
+    /*    margin-top: 0!important;*/
+    /*}*/
+    .nav-search-navbar{
+        height: 30px;
+    }
+    .nav-search-input{
+        width: 260px;
+        height: 30px;
+    }
+}
+
+@media only screen and (max-width: 376px) {
+    .nav-search-input{
+        width: 260px;
+        height: 30px;
+    }
+    .nav-search-navbar{
+        height: 30px;
+    }
+    #app .documentation{
+        margin-bottom: 0!important;
+    }
+
+    #app .markdown p{
+        font-size: 14px!important;
+        line-height: 20px!important;
+    }
+    #app .swagger-ui .errors-wrapper{
+        padding-left: 12px!important;
+        padding-right: 12px!important;
+    }
+    .documentation hr{
+        margin-top: 12px!important;
+        margin-bottom: 12px!important;
+    }
+    #app .markdown p{
+        font-size: 14px!important;
+    }
+    .title-api{
+        font-size: 14px!important;
+    }
+    .sidebar>ul>li>h2{
+        font-size: 14px!important;
+    }
+    .sidebar>ul>li>ul>li a{
+        font-size: 12px;
+        padding: 0 12px;
+    }
+    .sidebar>ul>li>h2{
+        font-size: 14px!important;
+    }
+    .sidebar{
+        width: 10rem!important;
+    }
+    .switch-label{
+        height: 16px!important;
+        width: 32px!important;
+    }
+    .switch-label:before{
+        width: 16px!important;
+        right: 65%;
+    }
+    .switch-checkbox:checked+.switch-label:before{
+        right: 16px!important;
+    }
+    .logo-hqplay{
+        width: 120px!important;
+    }
+    .swagger-ui .opblock-description-wrapper, .swagger-ui .opblock-external-docs-wrapper, .swagger-ui .opblock-title_normal{
+        padding: 12px 12px!important;
+        margin-bottom: 0!important;
+    }
+    .swagger-ui .table-container{
+        padding-left: 16px!important;
+        padding-right: 16px!important;
+    }
+    .swagger-ui .opblock .opblock-section-header{
+        padding: 8px 16px!important;
+    }
+    .swagger-ui .responses-inner{
+        padding-top: 0!important;
+    }
+    /*.swagger-ui table{*/
+    /*    margin-top: 0!important;*/
+    /*}*/
+    .swagger-ui .table-container{
+        padding-top: 0!important;
+    }
+    .swagger-ui table{
+        margin-bottom: 0!important;
+    }
+    .swagger-ui input[type=email]::placeholder, .swagger-ui input[type=file]::placeholder, .swagger-ui input[type=password]::placeholder, .swagger-ui input[type=search]::placeholder, .swagger-ui input[type=text]::placeholder, .swagger-ui textarea{
+        font-size: 12px!important;
+    }
+    .swagger-ui input[type=email], .swagger-ui input[type=file], .swagger-ui input[type=password], .swagger-ui input[type=search], .swagger-ui input[type=text], .swagger-ui textarea{
+        padding: 8px!important;
+        height: 32px!important;
+        font-size: 12px!important;
+    }
+    .swagger-ui .parameter__name{
+        font-size: 14px!important;
+    }
+    .error-wrapper{
+        margin-bottom: 0!important;
+    }
+    .swagger-ui .opblock-tag{
+        margin-top: 0!important;
+    }
+    .swagger-ui section h3{
+        font-size: 14px!important;
+        margin-top: 16px!important;
+    }
+    .swagger-ui .filter .operation-filter-input::placeholder{
+        font-size: 12px!important;
+    }
+    .swagger-ui .filter .operation-filter-input{
+        padding: 6px!important;
+        font-size: 12px!important;
+    }
+    .swagger-ui .errors-wrapper .errors h4,
+    .swagger-ui .errors-wrapper .errors .message.thrown{
+        font-size: 12px!important;
+    }
+    .swagger-ui .errors-wrapper hgroup h4{
+        font-size: 16px!important;
+    }
+    .documentation h1:first-of-type{
+        font-size: 16px!important;
+        margin-bottom: 12px!important;
+    }
+    .swagger-ui .opblock-tag{
+        font-size: 16px!important;
+    }
+    #app .documentation{
+        padding: 0 12px!important;
+    }
+    .swagger-ui .opblock .opblock-summary-path{
+        max-width: calc(100% - 50px - 12rem)!important;
+    }
+    .swagger-ui .wrapper{
+        padding: 0!important;
+    }
+    #app .swagger-ui table thead tr td, .swagger-ui table thead tr th,
+    #app .swagger-ui .parameter__name,
+    #app .parameter__type,
+    #app .parameter__deprecated,
+    #app .parameter__in,
+    #app .parameters-col_description,
+    #app .response-col_status{
+        padding-left: 8px!important;
+        padding-right: 8px!important;
+    }
+    #app .response-col_description{
+        padding-top: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #app .parameters-col_description{
+        padding-top: 0;
+    }
+    #app .markdown p{
+        margin: 0 auto;
+    }
+    #app .swagger-ui .filter .operation-filter-input{
+        margin: 0 0!important;
+    }
+    #app .sidebar>ul>li>h2{
+        padding: 8px 12px;
+    }
+    #app .swagger-ui .parameters-col_description{
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+    #app .swagger-ui .parameters-col_description input[type=text]{
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .parameters-col_description{
+        margin-bottom: 0;
+    }
+    #app .execute-wrapper{
+        padding: 0 16px;
+
+    }
+    #app .documentation{
+        margin-top: 4rem;
+        width: 100%;
+        padding-left: 17rem;
+    }
+
+    #app .swagger-ui .wrapper{
+        max-width: 100%;
+    }
+    #app .swagger-ui .scheme-container{
+        padding: 16px 0;
+        box-shadow: none;
+        margin-bottom: 0;
+    }
+    #app .swagger-ui .errors-wrapper{
+        margin: 0 0 16px 0!important;
+    }
+    #app .operation-tag-content{
+        margin-top: 8px;
+    }
+    #app .sidebar{
+        padding-top: 16px;
+    }
+    #app .schemes-title{
+        margin-bottom: 4px;
+    }
+    #app .swagger-ui .topbar{
+        padding: 0;
+    }
+    #app .authorization__btn{
+        display: none;
+    }
+    .opblock-summary-control svg{
+        margin-right: 4px;
+    }
+}

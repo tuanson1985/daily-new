@@ -1,0 +1,99 @@
+.mariginauto{
+    width: 100%;
+    margin: 0 auto;
+}
+.left__right{
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+.item__sp{
+    padding: 16px;
+}
+
+
+@charset "UTF-8";
+
+/* TO SUPPORT ENTITY ICONS/SYMBOLS NEED "UTF-8" SETTING  */
+
+/* Super simple animated buttons using entity symbols as icons.  Follows is a great resource for symbols:  https://www.toptal.com/designers/htmlarrows/symbols/
+
+Button Markup  */
+
+.button {
+    display: inline-block;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.button:before,
+.button:after {
+    position: absolute;
+    top: 32px;
+    bottom: 0;
+    right: 0;
+    width: 2.8em;
+    transition: 0.2s;
+    transform-origin: 50% 60%;
+    font-size: 24px;
+}
+
+
+/* Arrow Button Markup  */
+
+.arrow:hover {
+    box-shadow: 0 3.4623px 6.1418px rgba(0,0,0,0.05),0 7.92923px 12.9218px rgba(0,0,0,0.05),0 9px 15px rgba(0,0,0,0.08)!important;
+    /*top: -4px;*/
+    transition: .2s ease-out;
+    /*border-radius: 12px;*/
+}
+.arrow:active,
+.arrow:focus {
+}
+/* Entity Icon   */
+.arrow:after {
+    content: "\2794";
+}
+/* Set Arrow Icon Bounce Animation   */
+.arrow:hover:after {
+    -webkit-animation: bounceright 0.3s alternate ease infinite;
+    animation: bounceright 0.3s alternate ease infinite;
+}
+
+/* Animations  */
+
+@-webkit-keyframes bounceright {
+    from {
+        -webkit-transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(3px);
+    }
+}
+@-webkit-keyframes wiggle {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(30deg);
+    }
+}
+@keyframes bounceright {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(3px);
+    }
+}
+@keyframes wiggle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(30deg);
+    }
+}
+

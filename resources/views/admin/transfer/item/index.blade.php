@@ -1,0 +1,597 @@
+{{-- Extends layout --}}
+@extends('admin._layouts.master')
+
+
+@section('action_area')
+    <div class="d-flex align-items-center text-right">
+
+        <div class="btn-group">
+            <a href="{{route('admin.'.$module.'.create')}}" type="button"  class="btn btn-success font-weight-bolder">
+                <i class="fas fa-plus-circle icon-md"></i>
+                {{__('Thêm mới')}}
+            </a>
+        </div>
+    </div>
+@endsection
+
+{{-- Content --}}
+@section('content')
+
+    <div class="card card-custom" id="kt_page_sticky_card">
+        <div class="card-header">
+            <div class="card-title">
+                <h3 class="card-label">
+                    {{__('Nạp Ví - ATM tự động')}} <i class="mr-2"></i>
+                </h3>
+            </div>
+            <div class="card-toolbar"></div>
+
+        </div>
+
+        <div class="card-body">
+            <!--begin: Search Form-->
+            <form class="mb-10" action="{{route('admin.transfer.export')}}" method="post">
+                {{ csrf_field() }}
+                <div class="row">
+                    {{--ID--}}
+                    <div class="form-group col-12 col-sm-6 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i
+                                        class="la la-calendar-check-o glyphicon-th"></i></span>
+                            </div>
+                            <input type="text" class="form-control datatable-input" id="id" placeholder="{{__('ID')}}">
+                        </div>
+                    </div>
+                    {{--title--}}
+                    <div class="form-group col-12 col-sm-6 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i
+                                        class="la la-calendar-check-o glyphicon-th"></i></span>
+                            </div>
+                            <input type="text" class="form-control datatable-input" id="title"
+                                   placeholder="{{__('Tiêu đề')}}">
+                        </div>
+                    </div>
+                     {{--shop_id--}}
+                     <div class="form-group col-12 col-sm-6 col-lg-3">
+                        <div class="input-group">
+                            <select name="shop_id[]" class="form-control select2 datatable-input shop_id" id="kt_select2_2" multiple data-placeholder="-- {{__('Tất cả shop')}} --"   style="width: 100%" >
+                                {!!\App\Library\Helpers::buildShopDropdownList($shop,null) !!}
+                            </select>
+                        </div>
+                    </div>
+
+                    {{--started_at--}}
+                    <div class="form-group col-12 col-sm-6 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Từ</span>
+                            </div>
+                            <input type="text" name="started_at" id="started_at" autocomplete="off"
+                                   class="form-control datatable-input  datetimepicker-input datetimepicker-default"
+                                   placeholder="{{__('Thời gian bắt đầu')}}" data-toggle="datetimepicker">
+
+                        </div>
+                    </div>
+
+                    {{--ended_at--}}
+                    <div class="form-group col-12 col-sm-6 col-lg-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Đến</span>
+                            </div>
+                            <input type="text" name="ended_at" id="ended_at" autocomplete="off"
+                                   class="form-control datatable-input   datetimepicker-input datetimepicker-default"
+                                   placeholder="{{__('Thời gian kết thúc')}}" data-toggle="datetimepicker">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <button class="btn btn-primary btn-primary--icon" id="kt_search">
+                            <span>
+                                <i class="la la-search"></i>
+                                <span>Tìm kiếm</span>
+                            </span>
+                        </button>&#160;&#160;
+                        <button class="btn btn-secondary btn-secondary--icon" id="kt_reset">
+                            <span>
+                                <i class="la la-close"></i>
+                                <span>Reset</span>
+                            </span>
+                        </button>&#160;&#160;
+                        @if ( auth()->user()->can('transfer-export'))
+                        <button class="btn btn-danger btn-secondary--icon" type="submit">
+                            <span>
+                                <i class="flaticon-folder-2"></i>
+                                <span>Xuất Excel</span>
+                            </span>
+                        </button>
+                    @endif
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="btn-group m-btn-group" role="group" aria-label="...">
+                            <a href="#" data-started-at="{{\Carbon\Carbon::now()->startOfDay()->format('d/m/Y H:i:s')}}"  data-ended-at="{{\Carbon\Carbon::now()->endOfDay()->format('d/m/Y H:i:s')}}" class="btn btn-info btn-filter-date" >Hôm nay</a>
+                            <a href="#" data-started-at="{{\Carbon\Carbon::yesterday()->startOfDay()->format('d/m/Y H:i:s')}}"  data-ended-at="{{\Carbon\Carbon::yesterday()->endOfDay()->format('d/m/Y H:i:s')}}" class="btn btn-info btn-filter-date">Hôm qua</a>
+                            <a href="#" data-started-at="{{\Carbon\Carbon::now()->startOfMonth()->format('d/m/Y H:i:s')}}"  data-ended-at="{{\Carbon\Carbon::now()->endOfMonth()->format('d/m/Y H:i:s')}}" class="btn btn-info btn-filter-date">Tháng này</a>
+                            <a href="#" data-started-at="{{\Carbon\Carbon::now()->startOfMonth()->subMonth()->startOfMonth()->format('d/m/Y H:i:s')}}"  data-ended-at="{{\Carbon\Carbon::now()->startOfMonth()->subMonth()->endOfMonth()->format('d/m/Y H:i:s')}}" class="btn btn-info btn-filter-date">Tháng trước</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row m--margin-bottom-20">
+                <div class="col-lg-12 m--margin-bottom-10-tablet-and-mobile" style="font-size: 14px ">
+                    Tổng số lệnh nạp: <b id="total_record">0</b>
+                </div>
+                <div class="col-lg-12 m--margin-bottom-10-tablet-and-mobile" style="font-size: 14px ">
+                    Tổng giá trị đơn hàng: <b id="total_price">0</b> <b>VNĐ</b>
+                </div>
+                <div class="col-lg-12 m--margin-bottom-10-tablet-and-mobile" style="font-size: 14px ">
+                    Tổng giá trị đơn hàng sau chiết khấu: <b id="total_real_received_price">0</b>  <b>VNĐ</b>
+                </div>
+            </div>
+            <br>
+            <!--begin: Search Form-->
+
+            <!--begin: Datatable-->
+            <table class="table table-bordered table-hover table-checkable " id="kt_datatable">
+            </table>
+            <!--end: Datatable-->
+        </div>
+    </div>
+
+
+    {{---------------all modal controll-------}}
+
+    <!-- delete item Modal -->
+    <div class="modal fade" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                {{Form::open(array('route'=>array('admin.'.$module.'.destroy',0),'class'=>'form-horizontal','id'=>'form-delete','method'=>'DELETE'))}}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> {{__('Xác nhận thao tác')}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i aria-hidden="true" class="ki ki-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{__('Bạn thực sự muốn xóa?')}}
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" class="id" value=""/>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('Hủy')}}</button>
+                    <button type="submit" class="btn btn-danger m-btn m-btn--custom btn-submit-custom" data-form="form-delete">{{__('Xóa')}}</button>
+                </div>
+                {{ Form::close() }}
+            </div>
+        </div>
+    </div>
+
+    <!-- set value Modal -->
+    <div class="modal fade" id="setValueModal"  role="dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+@endsection
+
+{{-- Styles Section --}}
+@section('styles')
+
+@endsection
+{{-- Scripts Section --}}
+@section('scripts')
+
+    <script>
+        "use strict";
+        var datatable;
+        var KTDatatablesDataSourceAjaxServer = function () {
+            var initTable1 = function () {
+
+
+                // begin first table
+                datatable = $('#kt_datatable').DataTable({
+                    responsive: true,
+
+                    dom: `<'row'<'col-sm-12 col-md-5'l><'col-sm-12 col-md-7 dataTables_pager'Bp>>
+                            <'row'<'col-sm-12'tr>>
+                        <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+
+                    // dom: "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>",
+                    lengthMenu: [20, 50, 100, 200,500,1000],
+                    pageLength: 20,
+                    language: {
+                        'lengthMenu': 'Display _MENU_',
+                    },
+                    searchDelay: 500,
+                    processing: true,
+                    serverSide: true,
+                    "order": [[1, "desc"]],
+                    ajax: {
+                        url: '{{url()->current()}}' + '?ajax=1',
+                        type: 'GET',
+                        data: function (d) {
+
+                            d.id = $('#id').val();
+                            d.title = $('#title').val();
+                            d.status = $('#status').val();
+                            d.position = $('#position').val();
+                            d.started_at = $('#started_at').val();
+                            d.ended_at = $('#ended_at').val();
+                            d.shop_id = $('.shop_id').val();
+                        }
+                    },
+
+                    buttons: [
+
+                        // {
+                        //     text: '<i class="m-nav__link-icon la la-trash"></i> Xóa đã chọn ',
+                        //     action : function(e) {
+                        //         e.preventDefault();
+                        //         var allSelected = '';
+                        //         var total = datatable.$('.checkbox-item input[type="checkbox"]:checked').length;
+                        //         if(total<=0){
+                        //             alert("Vui lòng chọn dòng để thực hiện thao tác");
+                        //             return;
+                        //         }
+
+                        //         datatable.$('.ckb_item input[type="checkbox"]').each(function (index, elem)  {
+                        //             if ($(elem).is(':checked')) {
+                        //                 allSelected = allSelected + $(elem).attr('rel');
+                        //                 if (index !== total - 1) {
+                        //                     allSelected = allSelected + ',';
+                        //                 }
+                        //             }
+                        //         })
+                        //         $('#deleteModal').modal('toggle');
+                        //         $('#deleteModal .id').attr('value', allSelected);
+
+                        //     }
+                        // },
+                        // {
+                        //     "extend": 'excelHtml5',
+                        //     "text": ' <i class="far fa-file-excel icon-md"></i> {{__('Xuất excel')}} ',
+                        //     "action": newexportaction,
+                        // },
+
+                    ],
+                    columns: [
+                        {
+                            data: null,
+                            title: '<label class="checkbox checkbox-lg checkbox-outline"><input type="checkbox" id="btnCheckAll">&nbsp<span></span></label>',
+                            orderable: false,
+                            searchable: false,
+                            width: "20px",
+                            class: "ckb_item",
+                            render: function (data, type, row) {
+                                return '<label class="checkbox checkbox-lg checkbox-outline checkbox-item"><input type="checkbox" rel="' + row.id + '" id="">&nbsp<span></span></label>';
+
+                            }
+                        },
+
+                        {data: 'id', title: 'ID'},
+                        {data: 'created_at', title: '{{__('Thời gian')}}'},
+                        {
+                            data: 'shop_id', title: '{{__('Shop')}}',
+                            render: function (data, type, row) {
+                                 return row.shop_id;
+                            }
+                        },
+                        {
+                            data: 'tranid', title: '{{__('Tranid')}}',
+                            render: function (data, type, row) {
+                                 return row.tranid;
+                            }
+                        },
+                        {
+                            data: 'username', title: '{{__('Người dùng')}}',
+                            render: function (data, type, row) {
+                                 return row.username;
+                            }
+                        },
+                        {
+                            data: 'price', title: '{{__('Số tiền')}}',
+                            render: function (data, type, row) {
+                                 return row.price;
+                            }
+                        },
+                        {
+                            data: 'ratio', title: '{{__('Chiết khấu')}}',
+                            render: function (data, type, row) {
+                                 return row.ratio;
+                            }
+                        },
+                        {
+                            data: 'real_received_price', title: '{{__('Thực nhận')}}',
+                            render: function (data, type, row) {
+                                 return row.real_received_price;
+                            }
+                        },
+                        {
+                            data: 'status', title: '{{__('Trạng thái')}}',
+                            render: function (data, type, row) {
+                                if (row.status == 1) {
+                                    return "<span class=\"label label-pill label-inline label-center mr-2  label-success \"> {{config("module.transfer.status.1")}} </span>";
+                                }
+                                if (row.status == 3) {
+                                    return "<span class=\"label label-pill label-inline label-center mr-2  label-info \"> {{config("module.transfer.status.3")}} </span>";
+                                }
+                                else if (row.status == 2) {
+                                    return "<span class=\"label label-pill label-inline label-center mr-2 label-warning \"> {{config("module.transfer.status.2")}} </span>";
+                                }
+                                else if(row.status == 0){
+                                    return "<span class=\"label label-pill label-inline label-center mr-2 label-danger \"> {{config("module.transfer.status.0")}}</span>";
+                                }
+                            }
+                        },
+
+                    ],
+                    "drawCallback": function (settings) {
+                    },
+                    footerCallback: function (row, data, start, end, display) {
+                        var api = this.api();
+                        // Remove the formatting to get integer data for summation
+                        var intVal = function (i) {
+                            return typeof i === 'string' ?
+                                i.replace(/[\$,]/g, '') * 1 :
+                                typeof i === 'number' ?
+                                    i : 0;
+                        };
+                        var json = datatable.ajax.json();
+                        $('#total_price').text(json.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                        $('#total_real_received_price').text(json.total_real_received_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                        $('#total_record').text(json.recordsTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    },
+
+                });
+
+                var filter = function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    datatable.column($(this).data('col-index')).search(val ? val : '', false, false).draw();
+                };
+                $('#kt_search').on('click', function (e) {
+                    e.preventDefault();
+                    var params = {};
+                    $('.datatable-input').each(function () {
+                        var i = $(this).data('col-index');
+                        if (params[i]) {
+                            params[i] += '|' + $(this).val();
+                        } else {
+                            params[i] = $(this).val();
+                        }
+                    });
+
+                    $.each(params, function (i, val) {
+                        // apply search params to datatable
+                        datatable.column(i).search(val ? val : '', false, false);
+                    });
+                    datatable.table().draw();
+                });
+
+                $('#kt_reset').on('click', function (e) {
+                    e.preventDefault();
+                    $('.datatable-input').each(function () {
+                        $(this).val('');
+                        datatable.column($(this).data('col-index')).search('', false, false);
+                    });
+                    datatable.table().draw();
+                });
+
+                datatable.on("click", "#btnCheckAll", function () {
+                    $(".ckb_item input[type='checkbox']").prop('checked', this.checked).change();
+                })
+
+                datatable.on("change", ".ckb_item input[type='checkbox']", function () {
+                    if (this.checked) {
+                        var currTr = $(this).closest("tr");
+                        datatable.rows(currTr).select();
+                    } else {
+                        var currTr = $(this).closest("tr");
+                        datatable.rows(currTr).deselect();
+                    }
+                });
+
+                //function update field
+                datatable.on("change", ".update_field", function (e) {
+
+
+                    e.preventDefault();
+                    var action=$(this).data('action');
+                    var field=$(this).data('field');
+                    var id=$(this).data('id');
+                    var value=$(this).data('value');
+                    if(field=='status'){
+
+                        if(value==1){
+                            value=0;
+                            $(this).data('value',1);
+                        }
+                        else{
+                            value=1;
+                            $(this).data('value',0);
+                        }
+                    }
+
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: action,
+                        data: {
+                            '_token':'{{csrf_token()}}',
+                            'field':field,
+                            'id':id,
+                            'value':value
+                        },
+                        beforeSend: function (xhr) {
+
+                        },
+                        success: function (data) {
+
+                            if (data.success) {
+                                if (data.redirect + "" != "") {
+                                    location.href = data.redirect;
+                                }
+                                toast('{{__('Cập nhật thành công')}}');
+                            } else {
+
+                                toast('{{__('Cập nhật thất bại.Vui lòng thử lại')}}', 'error');
+                            }
+
+
+                        },
+                        error: function (data) {
+                            toast('{{__('Cập nhật thất bại.Vui lòng thử lại')}}', 'error');
+                        },
+                        complete: function (data) {
+
+                        }
+                    });
+
+                });
+
+            };
+            return {
+
+                //main function to initiate the module
+                init: function () {
+                    initTable1();
+                },
+
+            };
+        }();
+
+        function newexportaction(e, dt, button, config) {
+            $(button).text("Đang tải...");
+            $(button).prop('disabled', true);
+            var self = this;
+            var oldStart = dt.settings()[0]._iDisplayStart;
+            dt.one('preXhr', function (e, s, data) {
+                // Just this once, load all data from the server...
+                data.start = 0;
+                data.length = 2147483647;
+                dt.one('preDraw', function (e, settings) {
+
+                    // Call the original action function
+                    if (button[0].className.indexOf('buttons-copy') >= 0) {
+                        $.fn.dataTable.ext.buttons.copyHtml5.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-excel') >= 0) {
+                        $.fn.dataTable.ext.buttons.excelHtml5.available(dt, config) ?
+                            $.fn.dataTable.ext.buttons.excelHtml5.action.call(self, e, dt, button, config) :
+                            $.fn.dataTable.ext.buttons.excelFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-csv') >= 0) {
+                        $.fn.dataTable.ext.buttons.csvHtml5.available(dt, config) ?
+                            $.fn.dataTable.ext.buttons.csvHtml5.action.call(self, e, dt, button, config) :
+                            $.fn.dataTable.ext.buttons.csvFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-pdf') >= 0) {
+                        $.fn.dataTable.ext.buttons.pdfHtml5.available(dt, config) ?
+                            $.fn.dataTable.ext.buttons.pdfHtml5.action.call(self, e, dt, button, config) :
+                            $.fn.dataTable.ext.buttons.pdfFlash.action.call(self, e, dt, button, config);
+                    } else if (button[0].className.indexOf('buttons-print') >= 0) {
+                        $.fn.dataTable.ext.buttons.print.action(e, dt, button, config);
+                    }
+                    // dt.one('preXhr', function (e, s, data) {
+                    //     // DataTables thinks the first item displayed is index 0, but we're not drawing that.
+                    //     // Set the property to what it was before exporting.
+                    //     settings._iDisplayStart = oldStart;
+                    //     data.start = oldStart;
+                    // });
+                    // Reload the grid with the original page. Otherwise, API functions like table.cell(this) don't work properly.
+                    // setTimeout(dt.ajax.reload, 0);
+                    // Prevent rendering of the full data to the DOM
+                    $(button).text("Xuất excel");
+                    $(button).prop('disabled', false);
+                    return false;
+                });
+            });
+            // Requery the server with the new one-time export settings
+
+            dt.ajax.reload();
+        };
+
+
+
+        //Funtion web ready state
+        jQuery(document).ready(function () {
+            KTDatatablesDataSourceAjaxServer.init();
+
+            $('.datetimepicker-default').datetimepicker({
+                format: 'DD/MM/YYYY HH:mm:00',
+                useCurrent: true,
+                autoclose: true
+
+            });
+
+            $('#deleteModal').on('show.bs.modal', function(e) {
+                //get data-id attribute of the clicked element
+                var id = $(e.relatedTarget).attr('rel')
+                $('#deleteModal .id').attr('value', id);
+            });
+
+            $('body').on('click', '.setvalue_toggle', function(e) {
+
+                e.preventDefault();
+                $('#setValueModal .modal-content').empty();
+                $('#setValueModal .modal-content').load($(this).attr("href"),function(){
+                    $('#setValueModal').modal({show:true});
+                });
+
+
+            })
+
+
+
+
+
+            $('.btn-submit-custom').click(function (e) {
+                e.preventDefault();
+                $(".btn-submit-custom").each(function (index, value) {
+                    KTUtil.btnWait(this, "spinner spinner-right spinner-white pr-15", '{{__('Chờ xử lý')}}', true);
+                });
+                var btn = this;
+                //gắn thêm hành động close khi submit
+                $('#submit-close').val($(btn).data('submit-close'));
+                var formSubmit = $('#' + $(btn).data('form'));
+                formSubmit.submit();
+            });
+
+            $('.btn-filter-date').click(function (e) {
+                e.preventDefault();
+                var startedAt=$(this).data('started-at');
+                var endeddAt=$(this).data('ended-at');
+
+                $('#started_at').val(startedAt);
+                $('#ended_at').val(endeddAt);
+                datatable.draw();
+            });
+
+
+
+
+
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+@endsection
