@@ -1,0 +1,312 @@
+.center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay-block:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .75);
+}
+.swiper-tablist {
+    opacity: 0;
+}
+.swiper-tablist.swiper-horizontal {
+    opacity: 1;
+}
+
+.icon__home{
+    border-radius: 100px;
+    background: #007aff;
+    color: #FFFFFF;
+    padding: 7px 8px;
+}
+
+.toggle-collapse .fa-plus{
+    color: #1990FF!important;
+}
+.toggle-collapse .fa-minus{
+    color: #007aff!important;
+}
+
+.policy__text__title{
+    font-weight: 600;
+}
+.policy__text__h{
+    font-weight: 700;
+    font-size: 32px;
+    color: #434657;
+}
+.policy__margin__top{
+    margin-top: 4px;
+}
+.policy__margin__left{
+    margin-left: 4px;
+    color: #434657;
+}
+.policy__text__small{
+    color: #434657;
+}
+
+.nav.nav-pills.nav-danger .nav-link:hover:not(.active), .nav.nav-pills.nav-danger .show>.policy__margin__left {
+    color: #007aff;
+    background-color: transparent;
+}
+.nav.nav-pills.nav-danger .nav-link.active .policy__margin__left{
+    color: #fff;
+    background-color: #007aff;
+}
+.nav.nav-pills.nav-danger .nav-link.active .policy__text__span{
+    color: #fff;
+    background-color: #007aff;
+}
+
+.nav.nav-pills.nav-danger .nav-link.active .policy__text__h{
+    color: #fff;
+    background-color: #007aff;
+}
+
+.nav.nav-pills.nav-danger .nav-link.active .icon__home{
+    color: #fff!important;
+    background-color: #007aff;
+}
+
+.nav.nav-pills.nav-danger .nav-link.active .policy__text__small{
+    color: #fff;
+    background-color: #007aff;
+}
+.marginauto{
+    width: 100%;
+    margin: 0 auto;
+}
+.left__right{
+    padding-left: 0;
+    padding-right: 0;
+}
+.policy__text__span{
+    font-size: 16px;
+    color: #434657;
+    font-weight: 600;
+}
+.policy__text__small{
+    font-size: 12px;
+    color: #434657;
+}
+.btn__add__diemban{
+    background-color: #007aff!important;
+    border-color: #007aff!important;
+}
+
+
+
+
+.btn__add__diemban:hover{
+    background-color: transparent!important;
+    border-color: #007aff!important;
+    color: #007aff!important;
+}
+.btn__add__diemban:hover i{
+    color: #007aff!important;
+}
+.policy__col__top{
+    margin-top: 12px;
+}
+.policy__tbody td{
+    vertical-align: middle;
+}
+
+.rate__policy{
+    padding: 4px;
+    border: 1px solid #434657;
+    border-radius: 4px;
+}
+.policy__text__error{
+    color: #f64e60!important;
+}
+
+.policy__elementor__right{
+    padding-left: 12px;
+    width: 40px;
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+.policy__elementor__right i{
+    font-size: 40px;
+    cursor: pointer;
+    color: #04AA6D;
+}
+
+.policy__elementor__left{
+    width: calc(100% - 40px);
+}
+
+.scroll-default{
+    padding-right: 8px;
+    max-height: 410px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scroll-default:hover::-webkit-scrollbar-thumb{
+    background-color: #DCDEE9;
+}
+
+.scroll-default::-webkit-scrollbar-track
+{
+    position: absolute;
+    top: 100px;
+    left: -60px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    background-color:  #ffffff;
+    border: none;
+}
+
+.scroll-default::-webkit-scrollbar
+{
+    width: 8px;
+    border: none;
+}
+
+.scroll-default::-webkit-scrollbar-thumb
+{
+    /*Màu thanh sroll*/
+    background: #BCBFD6;
+    border-radius: 100px;
+    border: none;
+    margin-left: 20px;
+    height: 20px;
+}
+.policy__span{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.scroll-default_shop{
+    padding-right: 8px;
+    max-height: 130px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scroll-default_shop:hover::-webkit-scrollbar-thumb{
+    background-color: #DCDEE9;
+}
+
+.scroll-default_shop::-webkit-scrollbar-track
+{
+    position: absolute;
+    top: 100px;
+    left: -60px;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    background-color:  #ffffff;
+    border: none;
+}
+
+.scroll-default_shop::-webkit-scrollbar
+{
+    width: 8px;
+    border: none;
+}
+
+.scroll-default_shop::-webkit-scrollbar-thumb
+{
+    /*Màu thanh sroll*/
+    background: #BCBFD6;
+    border-radius: 100px;
+    border: none;
+    margin-left: 20px;
+    height: 20px;
+}
+.policy__width__zero{
+    width: 0%;
+    padding: 0;
+    line-height: 38px;
+}
+
+.policy__input__position{
+    position: relative;
+}
+
+.policy__span__position{
+    position: absolute;
+    top: 10px;
+    right: 24px;
+    color: #e4e6ef;
+}
+.add_phi{
+    padding-left: 0;
+    /*padding-right: 24px;*/
+    position: relative;
+    margin-bottom: 12px;
+}
+.remove_add_phi_icon{
+    position: absolute;
+    top: 8px;
+    right: 0;
+    cursor: pointer;
+}
+
+.nav.nav-tabs.nav-tabs-line.nav-tabs-line-3x .nav-link.active, .nav.nav-tabs.nav-tabs-line.nav-tabs-line-3x .nav-link:hover:not(.disabled), .nav.nav-tabs.nav-tabs-line.nav-tabs-line-3x .show>.nav-link{
+    border-color: #007aff!important;
+}
+.nav .nav-link.active, .nav .nav-link.active .nav-text, .nav .nav-link:hover:not(.disabled), .nav .nav-link:hover:not(.disabled) .nav-text, .nav .show>.nav-link, .nav .show>.nav-link .nav-text{
+    color: #007aff!important;
+}
+
+#label_policy_default .checkbox>input:checked~span {
+    background-color: #007aff!important;
+}
+#themDanhMuc .nested-list-content{
+    padding-left: 8px!important;
+}
+
+
+#themDanhMuc .nested-list-item > button{
+    margin-left: 0!important;
+}
+#themDanhMuc .nested-list-content{
+    padding-left: 8px!important;
+}
+
+.cb_danhmuc{
+    background: #e4e6ef!important;
+}
+
+#text-empty-user{
+    display: none;
+}
+#text-empty{
+    display: none;
+}
+.svg-icon.svg-icon-primary svg g [fill] {
+    -webkit-transition: fill 0.3s ease;
+    transition: fill 0.3s ease;
+    fill: #007aff !important;
+}
+.delete_price{
+    cursor: pointer;
+    position: absolute;
+    right: -16px;
+    top: 20%;
+    font-size: 20px;
+}
+
+.collapse_total_tr{
+    background: #f7f8fa;
+}
+
+.btn_filter_date.active{
+    color: #007aff!important;
+    background: #007aff4a!important;
+    border-color: #007aff4a!important;
+}
+
+

@@ -1,0 +1,5 @@
+@mixin maxWidth($max_width:992px){
+  @media screen and (max-width: $max_width) {
+    @content
+  }
+}

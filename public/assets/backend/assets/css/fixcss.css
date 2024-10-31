@@ -1,0 +1,143 @@
+#kt_aside_menu .menu-nav{
+    padding: 12px 0 24px 0;
+}
+
+.closemenusiba{
+    display: none;
+}
+
+.dongbogit{
+    margin-right: 8px;
+    height: 38px;
+    margin-top: 4px
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #kt_aside{
+        margin-top: 54px!important;
+        padding-top: 56px!important;
+    }
+    #kt_aside_menu .menu-nav{
+        padding: 12px 0 120px 0;
+    }
+    .closemenusiba{
+        display: block!important;
+        position: absolute;
+        font-size: 20px;
+        right: 12px;
+        top: 16px;
+    }
+
+}
+
+
+@media only screen and (min-width: 640px) and (max-width: 768px) {
+    #kt_aside{
+        margin-top: 54px!important;
+        padding-top: 56px!important;
+    }
+    #kt_aside_menu .menu-nav{
+        padding: 12px 0 120px 0;
+    }
+    .closemenusiba{
+        display: block!important;
+        position: absolute;
+        font-size: 20px;
+        right: 12px;
+        top: 16px;
+    }
+
+}
+
+@media only screen and (min-width: 574px) and (max-width: 639px) {
+    #kt_aside{
+        margin-top: 54px!important;
+        padding-top: 56px!important;
+    }
+    #kt_aside_menu .menu-nav{
+        padding: 12px 0 120px 0;
+    }
+    .closemenusiba{
+        display: block!important;
+        position: absolute;
+        font-size: 20px;
+        right: 12px;
+        top: 16px;
+    }
+    .dongbogit{
+        height: 48px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 573px) {
+    #kt_aside{
+        margin-top: 54px!important;
+        padding-top: 56px!important;
+    }
+    #kt_aside_menu .menu-nav{
+        padding: 12px 0 134px 0;
+    }
+    .closemenusiba{
+        display: block!important;
+        position: absolute;
+        font-size: 20px;
+        right: 12px;
+        top: 16px;
+    }
+    .dongbogit{
+        height: 48px;
+    }
+
+}
+@media only screen and (max-width: 376px) {
+    .dongbogit{
+        height: 48px;
+    }
+    #kt_aside{
+        margin-top: 54px!important;
+        padding-top: 56px!important;
+    }
+    #kt_aside_menu .menu-nav{
+        padding: 12px 0 134px 0;
+    }
+    .closemenusiba{
+        display: block!important;
+        position: absolute;
+        font-size: 20px;
+        right: 12px;
+        top: 16px;
+    }
+
+}
+
+
+#kt_datatable_pp #kt_datatable_wrapper .table-hover tbody tr{
+    background: #f3f6f9;
+}
+
+#kt_datatable_pp #kt_datatable_wrapper .group{
+    background: #ffffff!important;
+}
+
+#kt_datatable_pp #kt_datatable_wrapper thead{
+    background: #f3f6f9;
+}
+
+.count_shop{
+    background: rgb(238, 70, 35);
+    font-size: 14px;
+    margin-left: 8px;
+    padding: 4px 8px;
+    border: 1px solid;
+    border-radius: 100%;
+    color: #FFFFFF;
+}
+.count_shop_created{
+    background: rgb(238, 70, 35);
+    font-size: 14px;
+    margin-left: 8px;
+    padding: 4px 8px;
+    border: 1px solid;
+    border-radius: 100%;
+    color: #FFFFFF;
+}

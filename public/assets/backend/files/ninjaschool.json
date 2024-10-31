@@ -1,0 +1,73 @@
+{
+    "id": "ID của tài khoản được web trả về",
+    "CAPTURES": {
+        "BAG": "Ảnh hành trang",
+        "BODY": "Ảnh đồ đang mặc",
+        "BOX": "Ảnh rương đồ",
+        "INFO1": "Ảnh thông tin tab 1",
+        "INFO2": "Ảnh thông tin tab 2",
+        "PET": "Ảnh thú cưỡi",
+        "TASK": "Ảnh nhiệm vụ"
+    },
+    "SERVER": {
+        "1": "1 bokken",
+        "2": "2 shuriken",
+        "3": "3 tessen",
+        "4": "4 kunai",
+        "5": "5 katana",
+        "6": "6 tone",
+        "7": "7 sanzu",
+        "8": "8 sensha"
+    },
+    "INFO": {
+        "CHAR_BANG_HOA": "Bánh đăng hỏa",
+        "CHAR_CLAN": "Tên gia tộc",
+        "CHAR_CLASS": {
+            "name": "Lớp",
+            "type": "number",
+            "value": ["Chưa vào lớp", "Kiếm", "Tiêu", "Kunai", "Cung", "Đao", "Quạt"]
+        },
+        "CHAR_MOUNT_STAR": "Thú cưỡi",
+        "CHAR_DAMAGE": "Tấn công",
+        "CHAR_DAMAGE_DOWN": "Giảm sát thương",
+        "CHAR_EXACTLY": "Chính xác",
+        "CHAR_FATAL": "Chí mạng",
+        "CHAR_GENDER": {
+            "name": "Giới tính",
+            "type": "number",
+            "value": ["Không có", "Nam", "Nữ"]
+        },
+        "CHAR_HP": "HP",
+        "CHAR_HP_MAX": "HP tổng",
+        "CHAR_KY_NANG_SO": "Sách kỹ năng sơ",
+        "CHAR_LEVEL": "Cấp độ",
+        "CHAR_LUONG": "Lượng",
+        "CHAR_MISS": "Né tránh",
+        "CHAR_MP": "MP",
+        "CHAR_MP_MAX": "MP tổng",
+        "CHAR_NAME": "Tên nhân vật",
+        "CHAR_PHONG_LOI": "Bánh phong lôi",
+        "CHAR_PK": "Điểm hiếu chiến",
+        "CHAR_REACT_DAME": "Phản đòn",
+        "CHAR_RES_FIRE": "Hỏa chống",
+        "CHAR_RES_ICE": "Băng chống",
+        "CHAR_RES_WIND": "Phong chống",
+        "CHAR_SYS_DOWN": "Hạ khắc",
+        "CHAR_SYS_UP": "Cường khắc",
+        "CHAR_TIEM_NANG_SO": "Sách tiềm năng sơ",
+        "CHAR_XU": "Xu",
+        "CHAR_XU_IN_BOX": "Xu trong rương",
+        "CHAR_YEN": "Yên"
+    },
+    "ITEM_BAG": [
+        {
+            "icon": "Mã icon",
+            "id": "Mã vật phẩm",
+            "name": "Tên vật phẩm",
+            "options": "Danh sách chỉ số",
+            "quantity": "Số lượng",
+            "type": "Loại",
+            "upgrade": "Cấp độ (Nâng cấp)"
+        }
+    ]
+}

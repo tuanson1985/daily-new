@@ -1,0 +1,324 @@
+.account_sidebar_menu{
+    /*float: left;*/
+    width: 270px;
+    border-top: 0;
+    margin: 30px 0 40px 0;
+}
+.account_content .container{
+    display: flex;
+
+}
+.account_sidebar_menu .row>div {
+    margin-bottom: 20px !important;
+    margin-top: 15px !important;
+}
+.account_sidebar_menu_title{
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 4px solid #32c5d2;
+}
+.account_sidebar_menu_title p{
+    font-size: 20px;
+    margin-bottom: 22px;
+    color: #3f444a;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.account_sidebar_menu_nav>ul{
+    margin: 0;
+    padding: 0;
+}
+.account_sidebar_menu_nav>ul>li{
+    list-style: none;
+    padding: 7px 0;
+    border-bottom: 1px solid #f2f2f2;
+}
+.account_sidebar_menu_nav>ul>li:before{
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    margin: 9px 12px 0 0;
+    content: '';
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    background: #32c5d2;
+    font-size: 14px;
+    float: left;
+}
+.account_sidebar_menu_nav ul li a{
+    font-weight: 400;
+    color: #3f444a;
+}
+.account_sidebar_menu_nav ul li a:hover{
+    color: #32c5d2;
+    text-decoration: none;
+}
+.account_sidebar_content{
+    overflow: hidden;
+    padding: 30px 0 30px 30px;
+    flex: 1;
+}
+/*thông tin tài khoản*/
+.account_sidebar_content_title p{
+    font-size: 30px;
+    color: #505050;
+    margin: 0 0 30px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.account_sidebar_content_line{
+    width: 100px;
+    height: 3px;
+    background-color: #db3869 !important;
+    margin: 0 0 30px 0;
+}
+
+@media (max-width: 991px){
+    .account_sidebar_menu {
+        flex-basis: 100%;
+        /*float: none;*/
+        display: block;
+        margin: 0;
+    }
+    .account_sidebar_content {
+        overflow: visible;
+        padding: 10px 0 30px 0;
+    }
+    .account_content .container{
+        flex-wrap:wrap;
+    }
+}
+/*lịch sử giao dịch*/
+.account_content_transaction_history span{
+    padding: 6px 4px;
+    /*font-size: 14px;*/
+    font-weight: 600;
+    /*line-height: 1;*/
+    color: #ffffff;
+    text-align: center;
+    /*background-color: #eee;*/
+    /*border: 1px solid;*/
+    /*border-radius: 4px;*/
+}
+
+.account_content_transaction_historyv2 span{
+    /*padding: 6px 12px;*/
+    font-size: 16px;
+    font-weight: 600;
+    /*line-height: 1;*/
+    color: #ffffff;
+    text-align: center;
+    /*background-color: #eee;*/
+    /*border: 1px solid;*/
+    /*border-radius: 4px;*/
+}
+
+.account_content_transaction_history__v2 span{
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    /*line-height: 1;*/
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    /*border-radius: 4px;*/
+}
+
+.account_content_transaction_history form>div{
+    margin-bottom: 16px;
+}
+
+.account_content_transaction_historyv2 form>div{
+    margin-bottom: 16px;
+}
+/*pay card*/
+.account_pay_card>p{
+    text-align: center;
+    color: black;
+}
+.account_pay_card>span p{
+    text-align: center;
+    color: red;
+}
+.account_pay_card .control-label{
+    text-align: right;
+    padding-top: 8px;
+}
+/*.account_pay_card th,.account_pay_card td{*/
+/*    word-break: break-word;*/
+/*}*/
+/*.account_content_transaction_history th,.account_content_transaction_history td{*/
+/*    word-break: break-word;*/
+/*}*/
+.account_content_transaction_history .control-label{
+    margin-bottom: 12px;
+}
+
+/*.account_content_transaction_historyv2 th,.account_content_transaction_historyv2 td{*/
+/*    word-break: break-word;*/
+/*}*/
+.account_content_transaction_historyv2 .control-label{
+    margin-bottom: 12px;
+}
+.account_sidebar_content .input-group{
+    margin-bottom: 8px;
+}
+
+@media (max-width: 540px) {
+    .item_buy_form_search>div{
+        flex-direction: column-reverse;
+    }
+    .account_pay_card th,.account_pay_card td{
+        font-size: 14px;
+    }
+    .account_content_transaction_history th,.account_content_transaction_history td{
+        font-size: 14px;
+    }
+    .account_content_transaction_historyv2 form>div {
+        margin-bottom: 8px;
+    }
+
+    .account_content_transaction_historyv2 th,.account_content_transaction_historyv2 td{
+        font-size: 14px;
+    }
+
+
+    .account_pay_card .control-label{
+        text-align: left;
+    }
+    .form-charge .form-group, #form-recharge .form-group{
+        margin-bottom: 0!important;
+    }
+    .data_pay_card_history__atm,.paycartdata{
+        margin-top: 20px;
+    }
+}
+.account_sidebar_menu_nav_active{
+    color: #32c5d2;
+}
+.recharge_atm p{
+    text-align: center;
+
+    font-weight: 900;
+    font-size: 16px;
+}
+.recharge_atm p a{
+    text-decoration: none;
+    color: red;
+}
+/*another service*/
+.special_service{
+    margin-top: 30px;
+}
+.special_service_title p{
+    text-align: center;
+    color: #505050;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+
+}
+.special_service_line{
+    width: 80px;
+    height: 3px;
+    background-color: #32c5d2;
+    margin: 0 auto 20px auto;
+}
+.special_service_content_slide_detail_in img{
+    width: 100%;
+}
+@media (max-width: 540px) {
+
+
+    .account_sidebar_content{
+        flex-basis: 100%;
+        min-width: 0;
+    }
+}
+.comfirm_tranfer_alert .recharge_atm p{
+    text-align: left ;
+    font-size: 18px;
+}
+.comfirm_tranfer_alert span{
+    color: red;
+}
+#recharge-info .recharge_atm {
+    display: none;
+}
+
+
+/*mua thẻ*/
+.news_image img{
+    width: 100%;
+}
+.emply-btns > a, .emply-btns > button {
+    float: left;
+    width: 100%;
+    background: #fb236a;
+    font-size: 13px;
+    color: #ffffff;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    border-radius: 8px;
+    border: 2px solid #fb236a;
+    padding: 11px 0;
+    margin-top: 10px;
+}
+.emply-btns > .followus {
+    background-color: #ffffff;
+    border-color: #8b91dd;
+    color: #8b91dd;
+    font-weight: bold;
+    outline: 0 none;
+}
+.c-content-box.c-size-lg {
+    padding: 40px 0;
+}
+.captcha{
+    border: 1px solid #ced4da;
+}
+.captcha img{
+    width: 100%;
+    height: 100%;
+}
+
+/*nam css*/
+.success_storecard p{
+    font-weight: 600;
+}
+
+.success_storecard p span{
+    color: red;
+}
+#success_storecard .modal-header .close{
+    margin: auto 0 !important;
+}
+.success_storecard .alert{
+    margin-bottom: 0 !important;
+}
+.success_storecard_pin ,.success_storecard_serial{
+    display: flex;
+    justify-content: space-between;
+}
+.menu_active{
+    color: #32c5d2 !important;
+}
+.copy_acc:hover{
+    color: #32c5d2 !important;
+}
+
+.theashow:hover{
+    text-decoration: none;
+}
+.theashow:hover span{
+    text-decoration: none;
+}
+
+.item_buy_list_in:hover{
+    box-shadow: #0c0c0c!important;
+}

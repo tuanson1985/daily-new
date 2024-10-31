@@ -1,0 +1,74 @@
+{
+    "CAPTURES": {
+        "TASK": "Ảnh nhiệm vụ", "INVENTORY": "Ảnh kho", "BOX": "Ảnh rương đồ", "SKILL": "Ảnh kỹ năng", "PET": "Ảnh thú cưỡi"
+    },
+    "SERVER": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "7": "7",
+        "8": "8",
+        "9": "9",
+        "10": "10"
+    },
+    "INFO": {
+        "CHAR_NAME": "tên nhân vật",
+        "CHAR_HP": "HP hiện tại",
+        "CHAR_HP_MAX": "HP max",
+        "CHAR_MP": "KI hiện tại",
+        "CHAR_MP_MAX": "KI max",
+        "CHAR_LEVEL": "cấp độ",
+        "CHAR_VANG": "vàng",
+        "CHAR_NGOC": "ngọc",
+        "CHAR_NGOC_KHOA": "ngọc khóa",
+        "CHAR_POWER": "sức mạnh",
+        "CHAR_POTENTIAL": "tiềm năng",
+        "CHAR_DAMAGE": "sức đánh",
+        "CHAR_DEFENSE": "giáp",
+        "CHAR_CRITICAL": "tỉ lệ chí mạng",
+        "CHAR_PLANET": {
+            "name": "Hành tinh",
+            "type": "number",
+            "value": ["Trái Đất", "Namếc", "Xayda"]
+        },
+        "EARRINGS": {
+            "name": "Bông tai",
+            "type": "number",
+            "value": ["Không có", "Bông tai cấp 1", "Bông tai cấp 2"]
+        },
+        "CAI_TRANG": "Cải trang",
+        "SKILL_PET": {
+            "name": "Skill Pet",
+            "type": "number",
+            "value": {
+                "0": "Chiêu đấm Dragon",
+                "1": "Chiêu Kamejoko",
+                "2": "Chiêu đấm Demon",
+                "3": "Chiêu Masenko",
+                "4": "Chiêu đấm Galick",
+                "5": "Chiêu Antomic",
+                "6": "Thái Dương Hạ San",
+                "7": "Trị thương",
+                "8": "Tái tạo năng lượng",
+                "9": "Kaioken",
+                "10": "Quả cầu kênh khi",
+                "11": "Makankosappo",
+                "12": "Đẻ trứng",
+                "13": "Biến hình",
+                "14": "Tự phát nổ",
+                "15": "Danh",
+                "16": "Chuong",
+                "17": "Liên hoàn",
+                "18": "Biến Sôcôla",
+                "19": "Khiên năng lượng",
+                "20": "Dịch chuyển tức thời",
+                "21": "Huýt sáo",
+                "22": "Thôi miên",
+                "23": "Trói"
+            }
+        }
+    }
+}
