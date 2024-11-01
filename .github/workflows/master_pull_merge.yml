@@ -131,7 +131,7 @@ jobs:
       run: |
         # Bước 1: Sao chép toàn bộ thư mục /home/dailynewZR6/daily-new.tichhop.pro/public_html sang /var/www/template (tạo nếu chưa có)
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'mkdir -p /var/www/template'
-        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" /home/dailynewZR6/daily-new.tichhop.pro/public_html/ root@${{ secrets.PUBLIC_IP }}:/var/www/template
+        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" /home/dailynewZR6/daily-new.tichhop.pro/public_html root@${{ secrets.PUBLIC_IP }}:/var/www/template
 
         # Bước 2: Thiết lập thư mục cần thiết trong /var/www/template
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data * && COMPOSER_ALLOW_SUPERUSER=1 composer update'
