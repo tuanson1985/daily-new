@@ -105,7 +105,7 @@ jobs:
     - name: Deploy to Server
       run: |
         rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" ./ root@${{ secrets.PUBLIC_IP }}:/var/www/template
-        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data *'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data * && COMPOSER_ALLOW_SUPERUSER=1 composer update'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /home/dailydedF9e/daily.dev.tichhop.pro/public_html/storage/logs/ /var/www/temp_logs'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /home/dailydedF9e/daily.dev.tichhop.pro/public_html && cp -a /var/www/template /home/dailydedF9e/daily.dev.tichhop.pro/public_html'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /var/www/temp_logs/ /home/dailydedF9e/daily.dev.tichhop.pro/public_html/storage/logs'
