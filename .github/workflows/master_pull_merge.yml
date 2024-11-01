@@ -90,31 +90,6 @@ jobs:
         echo 'SENTRY_LARAVEL_DSN=${{ secrets.SENTRY_LARAVEL_DSN }}' >> .env
         echo 'SENTRY_TRACES_SAMPLE_RATE=${{ secrets.SENTRY_TRACES_SAMPLE_RATE }}' >> .env
         echo 'SENTRY_PROFILES_SAMPLE_RATE=${{ secrets.SENTRY_PROFILES_SAMPLE_RATE }}' >> .env
-      # - name: Get composer cache directory
-    #   id: composer-cache
-    #   run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
-    # - name: Cache dependencies
-    #   uses: actions/cache@v4
-    #   with:
-    #     path: ${{ steps.composer-cache.outputs.dir }}
-    #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
-    #     restore-keys: ${{ runner.os }}-composer-
-    # - name: Install dependencies
-    #   run: |
-    #     composer update --ignore-platform-req=ext-sodium
-    # - name: Install Dependencies
-    #   run:
-    #     composer update --ignore-platform-reqs
-    #     composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-    # - name: Create deployment artifact
-    #   env:
-    #     GITHUB_SHA: ${{ github.sha }}
-    #   run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
-    # - name: Store artifact for distribution
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: app-build
-    #     path: ${{ github.sha }}.tar.gz
     - name: Telegram - notice process begin
       run: |
         curl -X POST \
@@ -129,30 +104,13 @@ jobs:
         ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
     - name: Deploy to Server
       run: |
-        # Bước 1: Sao chép toàn bộ thư mục /home/dailynewZR6/daily-new.tichhop.pro/public_html sang /var/www/template (tạo nếu chưa có)
-        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'mkdir -p /var/www/template'
-        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" /home/dailynewZR6/daily-new.tichhop.pro/public_html root@${{ secrets.PUBLIC_IP }}:/var/www/template
-
-        # Bước 2: Thiết lập thư mục cần thiết trong /var/www/template
+        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" ./ root@${{ secrets.PUBLIC_IP }}:/var/www/template
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data * && COMPOSER_ALLOW_SUPERUSER=1 composer update'
-
-        # Bước 3: Sao chép thư mục logs từ /home/dailynewZR6/daily-new.tichhop.pro/public_html/storage/logs sang /var/www/temp_logs
-        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'mkdir -p /var/www/temp_logs'
-        rsync -azr --delete -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" /home/dailynewZR6/daily-new.tichhop.pro/public_html/storage/logs/ root@${{ secrets.PUBLIC_IP }}:/var/www/temp_logs
-
-        # Bước 4: Xóa thư mục cũ và di chuyển thư mục template vào vị trí /home/dailydedF9e/daily.dev.tichhop.pro/public_html
-        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /home/dailydedF9e/daily.dev.tichhop.pro/public_html && mv /var/www/template /home/dailydedF9e/daily.dev.tichhop.pro/public_html'
-
-        # Bước 5: Di chuyển lại logs vào thư mục storage/logs mới
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /home/dailydedF9e/daily.dev.tichhop.pro/public_html/storage/logs/ /var/www/temp_logs'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /home/dailydedF9e/daily.dev.tichhop.pro/public_html && cp -a /var/www/template /home/dailydedF9e/daily.dev.tichhop.pro/public_html'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /var/www/temp_logs/ /home/dailydedF9e/daily.dev.tichhop.pro/public_html/storage/logs'
-
-        # Bước 6: Thiết lập quyền và tạo cache Laravel
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /home/dailydedF9e/daily.dev.tichhop.pro/public_html && chown -R www-data:www-data * && php artisan config:cache && php artisan route:cache'
-
-        # Bước 7: Khởi động lại Nginx
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'pkill nginx && sleep 1 && systemctl start nginx'
-
-        # Bước 8: Xóa thư mục temp_logs sau khi di chuyển hoàn tất
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /var/www/temp_logs'
 
     - name: Telegram - notice process finished
