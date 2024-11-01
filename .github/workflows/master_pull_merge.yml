@@ -52,7 +52,7 @@ jobs:
         echo 'PUSHER_APP_KEY=${{ secrets.PUSHER_APP_KEY }}' >> .env
         echo 'PUSHER_APP_SECRET=${{ secrets.PUSHER_APP_SECRET }}' >> .env
         echo 'PUSHER_APP_CLUSTER=${{ secrets.PUSHER_APP_CLUSTER }}' >> .env
-        echo 'MIX_PUSHER_APP_KEY="${{ secrets.MIX_PUSHER_APP_KEY }}"' >> .env
+        echo 'MIX_PUSHER_APP_KEY=${{ secrets.MIX_PUSHER_APP_KEY }}' >> .env
         echo 'MIX_PUSHER_APP_CLUSTER=${{ secrets.MIX_PUSHER_APP_CLUSTER }}' >> .env
         echo 'OTP_ENABLED=true' >> .env
         echo 'OTP_LIFETIME=${{ secrets.OTP_LIFETIME }}' >> .env
