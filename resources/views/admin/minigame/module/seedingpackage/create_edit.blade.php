@@ -10,6 +10,7 @@
             Back
         </a>
 
+        
         <div class="btn-group">
             <button type="button" class="btn btn-success font-weight-bolder btn-submit-custom" data-form="formMain" data-submit-close="1">
                 <i class="ki ki-check icon-sm"></i>
@@ -97,7 +98,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số user top') }}</label>
@@ -109,7 +110,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số lượt chơi') }}</label>
@@ -130,7 +131,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số người đang chơi') }}</label>
@@ -151,7 +152,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số lượt chơi gần đây') }}</label>
@@ -163,7 +164,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số trúng giải đặc biệt') }}</label>
@@ -184,7 +185,7 @@
                             @endif
                         </div>
                     </div>
-                    
+
                     <div class="form-group row">
                         <div class="col-3 col-md-3">
                             <label>{{ __('Số giải thưởng còn lại') }}</label>
@@ -352,7 +353,7 @@
                 var formSubmit = $('#' + $(btn).data('form'));
                 formSubmit.submit();
             });
-            $("select[name=position]").change(function(){                                        
+            $("select[name=position]").change(function(){
                 window.location.href = $('input[name=urlcurrent]').val()+'?position='+$( "select[name=position]" ).val();
             });
         });
