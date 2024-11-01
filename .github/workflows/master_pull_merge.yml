@@ -129,7 +129,7 @@ jobs:
         ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
     - name: Deploy to Server
       run: |
-        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" ./ root@${{ secrets.PUBLIC_IP }}:/home/dailynewZR6/daily-new.tichhop.pro/public_html
+        rsync -azr --delete --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" ./ root@${{ secrets.PUBLIC_IP }}:/home/dailynewZR6/daily-new.tichhop.pro/public_html
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data * && COMPOSER_ALLOW_SUPERUSER=1 composer update'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /home/dailynewZR6/daily-new.tichhop.pro/public_html/storage/logs/ /var/www/temp_logs'
         ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /home/dailynewZR6/daily-new.tichhop.pro/public_html && mv /var/www/template /home/dailynewZR6/daily-new.tichhop.pro/public_html'
