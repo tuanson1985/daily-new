@@ -11,7 +11,86 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: ${{ secrets.APP_NAME }}
-    # - name: Get composer cache directory
+    - name: Create .env
+      run: |
+        echo 'APP_NAME=${{ secrets.APP_NAME }}' >> .env
+        echo 'APP_ENV=${{ secrets.APP_ENV }}' >> .env
+        echo 'APP_KEY=${{ secrets.APP_KEY }}' >> .env
+        echo 'APP_DEBUG=false' >> .env
+        echo 'APP_URL=${{ secrets.APP_URL }}' >> .env
+        echo 'MEDIA_URL=${{ secrets.MEDIA_URL }}' >> .env
+        echo 'SITE_SECRET=${{ secrets.SITE_SECRET }}' >> .env
+        echo 'API_DOMAIN=${{ secrets.API_DOMAIN }}' >> .env
+        echo 'URL_DAILY=${{ secrets.URL_DAILY }}' >> .env
+        echo 'LOG_CHANNEL=${{ secrets.LOG_CHANNEL }}' >> .env
+        echo 'LOG_LEVEL=debug' >> .env
+        echo 'DB_CONNECTION=${{ secrets.DB_CONNECTION }}' >> .env
+        echo 'DB_HOST=${{ secrets.DB_HOST }}' >> .env
+        echo 'DB_PORT=${{ secrets.DB_PORT }}' >> .env
+        echo 'DB_DATABASE=${{ secrets.DB_DATABASE }}' >> .env
+        echo 'DB_USERNAME=${{ secrets.DB_USERNAME }}' >> .env
+        echo 'DB_PASSWORD=${{ secrets.DB_PASSWORD }}' >> .env
+        echo 'BROADCAST_DRIVER=${{ secrets.BROADCAST_DRIVER }}' >> .env
+        echo 'CACHE_DRIVER=${{ secrets.CACHE_DRIVER }}' >> .env
+        echo 'QUEUE_CONNECTION=${{ secrets.QUEUE_CONNECTION }}' >> .env
+        echo 'SESSION_DRIVER=${{ secrets.SESSION_DRIVER }}' >> .env
+        echo 'SESSION_LIFETIME=${{ secrets.SESSION_LIFETIME }}' >> .env
+        echo 'REDIS_HOST=${{ secrets.REDIS_HOST }}' >> .env
+        echo 'REDIS_PASSWORD=null' >> .env
+        echo 'REDIS_PORT=${{ secrets.REDIS_PORT }}' >> .env
+        echo 'REDIS_DB=${{ secrets.REDIS_DB }}' >> .env
+        echo 'REDIS_CACHE_DB=${{ secrets.REDIS_CACHE_DB }}' >> .env
+        echo 'MAIL_MAILER=${{ secrets.MAIL_MAILER }}' >> .env
+        echo 'MAIL_HOST=${{ secrets.MAIL_HOST }}' >> .env
+        echo 'MAIL_PORT=${{ secrets.MAIL_PORT }}' >> .env
+        echo 'MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}' >> .env
+        echo 'MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}' >> .env
+        echo 'MAIL_ENCRYPTION=${{ secrets.MAIL_ENCRYPTION }}' >> .env
+        echo 'MAIL_FROM_ADDRESS=${{ secrets.MAIL_FROM_ADDRESS }}' >> .env
+        echo 'MAIL_FROM_NAME="${{ secrets.MAIL_FROM_NAME }}"' >> .env
+        echo 'PUSHER_APP_ID=${{ secrets.PUSHER_APP_ID }}' >> .env
+        echo 'PUSHER_APP_KEY=${{ secrets.PUSHER_APP_KEY }}' >> .env
+        echo 'PUSHER_APP_SECRET=${{ secrets.PUSHER_APP_SECRET }}' >> .env
+        echo 'PUSHER_APP_CLUSTER=${{ secrets.PUSHER_APP_CLUSTER }}' >> .env
+        echo 'MIX_PUSHER_APP_KEY="${{ secrets.MIX_PUSHER_APP_KEY }}"' >> .env
+        echo 'MIX_PUSHER_APP_CLUSTER="${{ secrets.MIX_PUSHER_APP_CLUSTER }}"' >> .env
+        echo 'OTP_ENABLED=true' >> .env
+        echo 'OTP_LIFETIME=${{ secrets.OTP_LIFETIME }}' >> .env
+        echo 'REQUIRE_USER_ACTIVE=false' >> .env
+        echo 'CKFINDER_LICSENCENAME=${{ secrets.CKFINDER_LICSENCENAME }}' >> .env
+        echo 'CKFINDER_LICSENCEKEY=${{ secrets.CKFINDER_LICSENCEKEY }}' >> .env
+        echo 'TELEGRAM_BOT=${{ secrets.TELEGRAM_BOT }}' >> .env
+        echo 'TELEGRAM_BOT_TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}' >> .env
+        echo 'TELEGRAM_CERTIFICATE_PATH=${{ secrets.TELEGRAM_CERTIFICATE_PATH }}' >> .env
+        echo 'TELEGRAM_WEBHOOK_URL= ' >> .env
+        echo 'TELEGRAM_CHANNEL_ID=${{ secrets.TELEGRAM_CHANNEL_ID }}' >> .env
+        echo 'HASH_SECRET_KEY_CLIENT=${{ secrets.HASH_SECRET_KEY_CLIENT }}' >> .env
+        echo 'SECRET_KEY_VERY_CLIENT=${{ secrets.SECRET_KEY_VERY_CLIENT }}' >> .env
+        echo 'JWT_SECRET=${{ secrets.JWT_SECRET }}' >> .env
+        echo 'JWT_TTL=${{ secrets.JWT_TTL }}' >> .env
+        echo 'JWT_REFRESH_TTL=${{ secrets.JWT_REFRESH_TTL }}' >> .env
+        echo 'ENCRYPT_CHARGING=${{ secrets.ENCRYPT_CHARGING }}' >> .env
+        echo 'ENCRYPT_USER=${{ secrets.ENCRYPT_USER }}' >> .env
+        echo 'CHANEL_NOTY_GITHUB=${{ secrets.CHANEL_NOTY_GITHUB }}' >> .env
+        echo 'BRANCHE_GITHUB=${{ secrets.BRANCHE_GITHUB }}' >> .env
+        echo 'TOKEN_GITHUB=${{ secrets.TOKEN_GITHUB }}' >> .env
+        echo 'L5_SWAGGER_GENERATE_ALWAYS=${{ secrets.L5_SWAGGER_GENERATE_ALWAYS }}' >> .env
+        echo 'URL_TICHHOP_NET=${{ secrets.URL_TICHHOP_NET }}' >> .env
+        echo 'URL_CALLBACK_CHECKLOGIN=${{ secrets.URL_CALLBACK_CHECKLOGIN }}' >> .env
+        echo 'FILESYSTEM_DRIVER=${{ secrets.FILESYSTEM_DRIVER }}' >> .env
+        echo 'AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}' >> .env
+        echo 'AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}' >> .env
+        echo 'AWS_DEFAULT_REGION=${{ secrets.AWS_DEFAULT_REGION }}' >> .env
+        echo 'AWS_BUCKET=${{ secrets.AWS_BUCKET }}' >> .env
+        echo 'AWS_URL=${{ secrets.AWS_URL }}' >> .env
+        echo 'AWS_ENDPOINT=${{ secrets.AWS_ENDPOINT }}' >> .env
+        echo 'TELEGRAM_BOT_ROBLOX=${{ secrets.TELEGRAM_BOT_ROBLOX }}' >> .env
+        echo 'TELEGRAM_CHANNEL_ID_BALANCE_DAILY=${{ secrets.TELEGRAM_CHANNEL_ID_BALANCE_DAILY }}' >> .env
+        echo 'URL_RETURN_LOGIN_GOOGLE=${{ secrets.URL_RETURN_LOGIN_GOOGLE }}' >> .env
+        echo 'SENTRY_LARAVEL_DSN=${{ secrets.SENTRY_LARAVEL_DSN }}' >> .env
+        echo 'SENTRY_TRACES_SAMPLE_RATE=${{ secrets.SENTRY_TRACES_SAMPLE_RATE }}' >> .env
+        echo 'SENTRY_PROFILES_SAMPLE_RATE=${{ secrets.SENTRY_PROFILES_SAMPLE_RATE }}' >> .env
+      # - name: Get composer cache directory
     #   id: composer-cache
     #   run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
     # - name: Cache dependencies
@@ -48,6 +127,16 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
+    - name: Deploy to Server
+      run: |
+        rsync -azr --delete --exclude .git --exclude .vscode --exclude .github -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }}" ./ root@${{ secrets.PUBLIC_IP }}:/home/dailynewZR6/daily-new.tichhop.pro/public_html
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /var/www/template && mkdir -p storage/framework/{sessions,views,cache} && chown -R www-data:www-data * && COMPOSER_ALLOW_SUPERUSER=1 composer update'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /home/dailynewZR6/daily-new.tichhop.pro/public_html/storage/logs/ /var/www/temp_logs'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /home/dailynewZR6/daily-new.tichhop.pro/public_html && mv /var/www/template /home/dailynewZR6/daily-new.tichhop.pro/public_html'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rsync -azr --delete /var/www/temp_logs/ /home/dailynewZR6/daily-new.tichhop.pro/public_html/storage/logs'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'cd /home/dailynewZR6/daily-new.tichhop.pro/public_html && chown -R www-data:www-data * && php artisan config:cache && php artisan route:cache'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'pkill nginx && sleep 1 && systemctl start nginx'
+        ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} root@${{ secrets.PUBLIC_IP }} 'rm -rf /var/www/temp_logs'
     - name: Telegram - notice process finished
       run: |
         curl -X POST \
