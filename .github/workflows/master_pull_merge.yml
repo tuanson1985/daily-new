@@ -1,0 +1,66 @@
+name: Deploy test ssh
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: ${{ secrets.APP_NAME }}
+    # - name: Get composer cache directory
+    #   id: composer-cache
+    #   run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+    # - name: Cache dependencies
+    #   uses: actions/cache@v4
+    #   with:
+    #     path: ${{ steps.composer-cache.outputs.dir }}
+    #     key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+    #     restore-keys: ${{ runner.os }}-composer-
+    # - name: Install dependencies
+    #   run: |
+    #     composer update --ignore-platform-req=ext-sodium
+    # - name: Install Dependencies
+    #   run:
+    #     composer update --ignore-platform-reqs
+    #     composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    # - name: Create deployment artifact
+    #   env:
+    #     GITHUB_SHA: ${{ github.sha }}
+    #   run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
+    # - name: Store artifact for distribution
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: app-build
+    #     path: ${{ github.sha }}.tar.gz
+    - name: Telegram - notice process begin
+      run: |
+        curl -X POST \
+          -H 'Content-Type: application/json' \
+          -d '{"chat_id": "${{ secrets.TELEGRAM_DEPLOYMENT_CHANNEL_ID }}", "text": "🚀 Bắt đầu deploy code DAILY", "disable_notification": false}' \
+          https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage
+    - name: Cấu hình SSH
+      run: |
+        mkdir -p ~/.ssh/
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -t ed25519 -p ${{ secrets.SSH_PORT }} -H ${{ secrets.PUBLIC_IP }} >> ~/.ssh/known_hosts
+    - name: Telegram - notice process finished
+      run: |
+        curl -X POST \
+          -H 'Content-Type: application/json' \
+          -d '{"chat_id": "${{ secrets.TELEGRAM_DEPLOYMENT_CHANNEL_ID }}", "text": "✅ Quá trình deploy DAILY đã hoàn tất.", "disable_notification": false}' \
+          https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage
+  failure:
+    needs: [deploy]
+    runs-on: ubuntu-latest
+    if: ${{ failure() }}
+    steps:
+      - run: |
+          curl -X POST \
+            -H 'Content-Type: application/json' \
+            -d '{"chat_id": "${{ secrets.TELEGRAM_DEPLOYMENT_CHANNEL_ID }}", "text": "🥵 Lỗi deploy code web DAILY. Lỗi có thể gây ra vấn đề kho tổng bị sập, các thị trường không thể lấy hàng được. Cần gấp rút kiểm tra\nLỗi chủ yếu do:\n- service nginx bị lỗi\n- lỗi permission\n\nCách fix lỗi serivce nginx\n1. ssh vào server\n2. nginx -t\n3. killall nginx\n4. systemctl start nginx\n\nCách fix lỗi permission\n- chown -R www-data:www-data /home/testsshHYam/test-ssh.tichhop.pro/public_html/*", "disable_notification": false}' \
+            https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage
